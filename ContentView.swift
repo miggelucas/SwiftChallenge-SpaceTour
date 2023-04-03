@@ -11,7 +11,8 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             Color(.black)
-            TideSystem()
+            //TideSystem()
+            SolarSystem()
         }
 
     }
