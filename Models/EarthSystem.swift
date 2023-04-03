@@ -12,29 +12,29 @@ struct EarthSystem: View {
     
     let moonRadius: CGFloat = 25
     let moonDistanceToEarth: CGFloat = 100
-    let moonRevolutionPeriod: Double
+    @State var moonRevolutionPeriod: Double
     
     @State private var moonAngle: Angle = .degrees(0)
-    @Binding var tideIncrement: Double
+
+    var tidePeriod: Double
     
     var body: some View {
         ZStack {
             // Tide
-            Ellipse()
-                .offset(x: -10, y: 0)
-                .fill(Color.blue.opacity(0.3))
-                .frame(width: earthRadius * tideIncrement,
-                       height: earthRadius*1.05)
+            Tide(earthRadius: earthRadius + 5,
+                 tideIntensityPeriod: tidePeriod)
                 .rotationEffect(moonAngle, anchor: .center)
             
             // Earth
-            PlanetView(radius: earthRadius, color: .brown)
+            PlanetView(radius: earthRadius,
+                       color: .brown)
                 .rotationEffect(moonAngle, anchor: .center)
             
             
             // Moon
-            PlanetView(radius: moonRadius, color: .gray)
-                .offset(x: moonDistanceToEarth * -1, y: 0)
+            PlanetView(radius: moonRadius,
+                       color: .gray)
+                .offset(x: moonDistanceToEarth , y: 0)
                 .rotationEffect(moonAngle, anchor: .center)
             
             
@@ -52,6 +52,6 @@ struct EarthSystem: View {
 
 struct EarthSystem_Previews: PreviewProvider {
     static var previews: some View {
-        EarthSystem(moonRevolutionPeriod: 25, tideIncrement: .constant(1))
+        EarthSystem(moonRevolutionPeriod: 10, tidePeriod: 10)
     }
 }

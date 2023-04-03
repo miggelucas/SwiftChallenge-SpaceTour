@@ -8,14 +8,13 @@ struct TideSystem: View {
     let earthRevolutionPeriod: CGFloat = 30
     let moonPeriod: CGFloat = 10
     
-
-    var tideIncrement: Double = 1.5
-    
     @State private var earthAngle: Angle = .degrees(0)
-    @State var tidePeriod = 1.5
+    
+    var tidePeriod: CGFloat {
+        return earthRevolutionPeriod / (earthRevolutionPeriod / moonPeriod)
+    }
     
     var body: some View {
-
         ZStack{
             
             // Sun
@@ -23,7 +22,7 @@ struct TideSystem: View {
             
             // sum, moon and tide
             EarthSystem(moonRevolutionPeriod: moonPeriod,
-                        tideIncrement: $tidePeriod)
+                        tidePeriod: tidePeriod)
                 .offset(x: distanceSunEarth)
                 .rotationEffect(earthAngle, anchor: .center)
         }

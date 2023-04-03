@@ -9,7 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        TideSystem()
+        ZStack {
+            Color(.black)
+            TideSystem()
+        }
+
     }
 }
 
