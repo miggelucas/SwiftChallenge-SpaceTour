@@ -12,7 +12,7 @@ struct EarthSystem: View {
     
     let moonRadius: CGFloat = 25
     let moonDistanceToEarth: CGFloat = 100
-    @State var moonRevolutionPeriod: Double
+    @State var moonRevolutionPeriod: Double = 28
     
     @State private var moonAngle: Angle = .degrees(0)
 
@@ -52,6 +52,13 @@ struct EarthSystem: View {
 
 struct EarthSystem_Previews: PreviewProvider {
     static var previews: some View {
-        EarthSystem(moonRevolutionPeriod: 10, tidePeriod: 10)
+        ZStack {
+            // Space
+            SpaceView()
+            
+            // System
+            EarthSystem(tidePeriod: 28)
+        }
+
     }
 }

@@ -22,7 +22,8 @@ let package = Package(
             accentColor: .presetColor(.purple),
             supportedDeviceFamilies: [
                 .pad,
-                .phone
+                .phone,
+                .mac
             ],
             supportedInterfaceOrientations: [
                 .portrait,

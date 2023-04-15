@@ -11,35 +11,43 @@ struct SolarSystem: View {
     
     var body: some View {
         ZStack {
+            // Space
+            Color(.black)
+            
             // Sum
-            PlanetView(radius: 300, color: .yellow)
+            PlanetView(radius: 100, color: .yellow)
             
             // Mercury
-            PlanetView(radius: 20, color: .indigo)
-                .offset(x: 350)
+            PlanetView(radius: 5, color: .indigo)
+                .offset(x: 65)
             
             // Venus
-            PlanetView(radius: 60, color: .yellow)
-                .offset(x: 450)
+            PlanetView(radius: 10, color: .yellow)
+                .offset(x: 90)
             
             // Earth
-            PlanetView(radius: 61, color: .blue)
-                .offset(x: 500)
+            PlanetView(radius: 12, color: .blue)
+                .offset(x: 120)
             
             // Mars
-            PlanetView(radius: 30, color: .red)
+            PlanetView(radius: 6, color: .red)
+                .offset(x: 140)
             
             // Jupiter
-            PlanetView(radius: 120, color: .orange)
+            PlanetView(radius: 60, color: .orange)
+                .offset(x: 210)
             
             // Saturn
-            PlanetView(radius: 110, color: .orange)
+            PlanetView(radius: 50, color: .orange)
+                .offset(x: 270)
             
             // Uranos
-            PlanetView(radius: 70, color: .cyan)
+            PlanetView(radius: 40, color: .cyan)
+                .offset(x: 320)
             
             // Neptune
-            PlanetView(radius: 69, color: .blue)
+            PlanetView(radius: 40, color: .blue)
+                .offset(x: 365)
             
             
         }

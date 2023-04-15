@@ -11,8 +11,9 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             Color(.black)
-            //TideSystem()
-            SolarSystem()
+            EarthSystem(moonRevolutionPeriod: 6, tidePeriod: 6)
+//            TideSystem()
+//            SolarSystem()
         }
 
     }

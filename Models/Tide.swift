@@ -48,7 +48,7 @@ struct Tide: View {
 
 struct Tide_Previews: PreviewProvider {
     static var previews: some View {
-        Tide(earthRadius: 50, tideIntensityPeriod: 1)
+        Tide(earthRadius: 50, tideIntensityPeriod: 50)
     }
 }
 
