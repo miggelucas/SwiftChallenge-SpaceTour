@@ -12,22 +12,25 @@ struct StarView: View {
     
     
     init(isAnimating: Bool = false,
-         starSize: CGFloat = CGFloat.random(in: 2...15),
-         animationDuration: Double = Double.random(in: 2...10),
+         starSize: CGFloat = CGFloat.random(in: 1...25),
+         animationDuration: Double = Double.random(in: 1...5),
+         opacity: Double = Double.random(in: 0.5...1),
          starColorList: [Color] = [ .cyan, .blue, .yellow, .orange,
-                                   .white, .white, .yellow, .orange,
-                                   .white, .white, .yellow, .orange,
-                                   .white, .white, .yellow, .orange,
-                                   .red, .brown]) {
-        self.isAnimating = isAnimating
-        self.starSize = starSize
-        self.starColor = starColorList.randomElement() ?? .white
-        self.animationDuration = animationDuration
-    }
+                                    .white, .white, .yellow, .orange,
+                                    .white, .white, .yellow, .orange,
+                                    .white, .white, .yellow, .orange,
+                                    .red, .brown]) {
+                                        self.isAnimating = isAnimating
+                                        self.starSize = starSize
+                                        self.starColor = starColorList.randomElement() ?? .white
+                                        self.animationDuration = animationDuration
+                                        self.opacity = opacity
+                                    }
     
     let starSize: CGFloat
     let starColor: Color
     let animationDuration: Double
+    let opacity: Double
     
     
     
@@ -38,6 +41,7 @@ struct StarView: View {
                 .frame(width: starSize)
                 .blur(radius: isAnimating ? 4 : 1.5)
                 .scaleEffect(isAnimating ? 0.8 : 1)
+                .opacity(isAnimating ? opacity + 0.2 : opacity)
             
         }
         
@@ -56,7 +60,7 @@ struct StarView_Previews: PreviewProvider {
             Color(.black)
             VStack {
                 StarView()
-   
+                
                 
             }
         }
