@@ -11,10 +11,9 @@ struct SpaceView: View {
     
     let numberOfStars: Int?
     
-    init(numberOfStars: Int? = 350) {
+    init(numberOfStars: Int? = 150) {
         self.numberOfStars = numberOfStars
     }
-    
     
     private func getRandomPosition() -> CGPoint {
         let screenWidth = UIScreen.main.bounds.width
@@ -25,10 +24,11 @@ struct SpaceView: View {
         
         return CGPoint(x: randomX, y: randomY)
     }
+
     
     var body: some View {
         ZStack {
-            Color(.black).opacity(0.9)
+            Color(.black)
             
             if let stars = numberOfStars {
                 ForEach(0..<stars) { _ in

@@ -12,9 +12,13 @@ struct StarView: View {
     
     
     init(isAnimating: Bool = false,
-         starSize: CGFloat = CGFloat.random(in: 10...20),
+         starSize: CGFloat = CGFloat.random(in: 2...15),
          animationDuration: Double = Double.random(in: 2...10),
-         starColorList: [Color] = [.cyan, .yellow, .orange, .blue, .brown, .white]) {
+         starColorList: [Color] = [ .cyan, .blue, .yellow, .orange,
+                                   .white, .white, .yellow, .orange,
+                                   .white, .white, .yellow, .orange,
+                                   .white, .white, .yellow, .orange,
+                                   .red, .brown]) {
         self.isAnimating = isAnimating
         self.starSize = starSize
         self.starColor = starColorList.randomElement() ?? .white
@@ -32,7 +36,7 @@ struct StarView: View {
             Circle()
                 .fill(starColor)
                 .frame(width: starSize)
-                .blur(radius: isAnimating ? 4 : 2)
+                .blur(radius: isAnimating ? 4 : 1.5)
                 .scaleEffect(isAnimating ? 0.8 : 1)
             
         }
