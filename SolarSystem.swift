@@ -10,6 +10,16 @@ import SwiftUI
 struct SolarSystem: View {
     @State var isAnimating: Bool = false
     
+    // distance to sum
+    let mercuryDistance: CGFloat = 65
+    let venusDistance: CGFloat = 90
+    let earthDistance: CGFloat = 120
+    let marsDistance: CGFloat = 140
+    let jupiterDistance: CGFloat = 240
+    let saturnDistance: CGFloat = 370
+    let uranosDistance: CGFloat = 430
+    let neptuneDistance: CGFloat = 465
+    
     var body: some View {
         ZStack {
             
@@ -19,63 +29,87 @@ struct SolarSystem: View {
                      opacity: 0.9,
                      starColorList: [.yellow],
                      scaleMin: 0.99)
-                
-            
+             
             // Mercury
-            PlanetView(radius: 5, color: .gray)
-                .offset(x: 65)
-                .rotationEffect(isAnimating ? Angle(degrees: 360) : Angle(degrees: 0))
-                .animation(.linear(duration: 0.88)
-                    .repeatForever(autoreverses: false), value: isAnimating)
+            ZStack {
+                OrbitalPathView(radius: mercuryDistance)
+                PlanetView(radius: 5, color: .gray)
+                    .offset(x: mercuryDistance)
+                    .rotationEffect(isAnimating ? Angle(degrees: 360) : Angle(degrees: 0))
+                    .animation(.linear(duration: 0.88)
+                        .repeatForever(autoreverses: false), value: isAnimating)
+            }
+           
             
             // Venus
-            PlanetView(radius: 10, color: .yellow)
-                .offset(x: 90)
-                .rotationEffect(isAnimating ? Angle(degrees: 380) : Angle(degrees: 20))
-                .animation(.linear(duration: 2.25)
+            ZStack {
+                OrbitalPathView(radius: venusDistance)
+                PlanetView(radius: 10, color: .yellow)
+                    .offset(x: venusDistance)
+                    .rotationEffect(isAnimating ? Angle(degrees: 380) : Angle(degrees: 20))
+                    .animation(.linear(duration: 2.25)
                     .repeatForever(autoreverses: false), value: isAnimating)
+            }
             
             // Earth
-            PlanetView(radius: 12, color: .blue)
-                .offset(x: 120)
-                .rotationEffect(isAnimating ? Angle(degrees: 400) : Angle(degrees: 40))
-                .animation(.linear(duration: 3.65)
+            ZStack {
+                OrbitalPathView(radius: earthDistance)
+                PlanetView(radius: 12, color: .blue)
+                    .offset(x: earthDistance)
+                    .rotationEffect(isAnimating ? Angle(degrees: 400) : Angle(degrees: 40))
+                    .animation(.linear(duration: 3.65)
                     .repeatForever(autoreverses: false), value: isAnimating)
+            }
             
             // Mars
-            PlanetView(radius: 6, color: .red)
-                .offset(x: 140)
-                .rotationEffect(isAnimating ? Angle(degrees: 420) : Angle(degrees: 60))
-                .animation(.linear(duration: 6.87)
+            ZStack {
+                OrbitalPathView(radius: marsDistance)
+                PlanetView(radius: 6, color: .red)
+                    .offset(x: marsDistance)
+                    .rotationEffect(isAnimating ? Angle(degrees: 420) : Angle(degrees: 60))
+                    .animation(.linear(duration: 6.87)
                     .repeatForever(autoreverses: false), value: isAnimating)
+            }
             
             // Jupiter
-            PlanetView(radius: 60, color: .orange)
-                .offset(x: 240)
-                .rotationEffect(isAnimating ? Angle(degrees: 440) : Angle(degrees: 80))
-                .animation(.linear(duration: 43.33)
+            ZStack {
+                OrbitalPathView(radius: jupiterDistance)
+                PlanetView(radius: 60, color: .orange)
+                    .offset(x: jupiterDistance)
+                    .rotationEffect(isAnimating ? Angle(degrees: 440) : Angle(degrees: 80))
+                    .animation(.linear(duration: 43.33)
                     .repeatForever(autoreverses: false), value: isAnimating)
+            }
             
             // Saturn
-            PlanetView(radius: 50, color: .orange)
-                .offset(x: 310)
-                .rotationEffect(isAnimating ? Angle(degrees: 520) : Angle(degrees: 160))
-                .animation(.linear(duration: 107.59)
+            ZStack {
+                OrbitalPathView(radius: saturnDistance)
+                PlanetView(radius: 50, color: .orange)
+                    .offset(x: saturnDistance)
+                    .rotationEffect(isAnimating ? Angle(degrees: 520) : Angle(degrees: 160))
+                    .animation(.linear(duration: 107.59)
                     .repeatForever(autoreverses: false), value: isAnimating)
+            }
             
             // Uranos
-            PlanetView(radius: 40, color: .cyan)
-                .offset(x: 390)
-                .rotationEffect(isAnimating ? Angle(degrees: 480) : Angle(degrees: 120))
-                .animation(.linear(duration: 306.87)
+            ZStack {
+                OrbitalPathView(radius: uranosDistance)
+                PlanetView(radius: 40, color: .cyan)
+                    .offset(x: uranosDistance)
+                    .rotationEffect(isAnimating ? Angle(degrees: 480) : Angle(degrees: 120))
+                    .animation(.linear(duration: 306.87)
                     .repeatForever(autoreverses: false), value: isAnimating)
+            }
             
             // Neptune
-            PlanetView(radius: 40, color: .blue)
-                .offset(x: 425)
-                .rotationEffect(isAnimating ? Angle(degrees: 360) : Angle(degrees: 0))
-                .animation(.linear(duration: 601.90)
+            ZStack {
+                OrbitalPathView(radius: neptuneDistance)
+                PlanetView(radius: 40, color: .blue)
+                    .offset(x: neptuneDistance)
+                    .rotationEffect(isAnimating ? Angle(degrees: 360) : Angle(degrees: 0))
+                    .animation(.linear(duration: 601.90)
                     .repeatForever(autoreverses: false), value: isAnimating)
+            }
             
             
         }
@@ -84,6 +118,8 @@ struct SolarSystem: View {
         }
     }
 }
+
+
 
 struct SolarSystem_Previews: PreviewProvider {
     static var previews: some View {
