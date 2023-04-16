@@ -12,7 +12,7 @@ struct StarView: View {
     
     
     init(isAnimating: Bool = false,
-         starSize: CGFloat = CGFloat.random(in: 1...25),
+         starSize: CGFloat = CGFloat.random(in: 1...15),
          animationDuration: Double = Double.random(in: 1...5),
          opacity: Double = Double.random(in: 0.5...1),
          starColorList: [Color] = [ .cyan, .blue, .yellow, .orange,

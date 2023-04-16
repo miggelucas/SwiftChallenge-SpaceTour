@@ -10,10 +10,10 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         ZStack {
-            SpaceView()
+            SpaceView(numberOfStars: 50)
 //            EarthSystem(moonRevolutionPeriod: 6, tidePeriod: 6)
 //            TideSystem()
-//            SolarSystem()
+            SolarSystem()
         }
 
     }
