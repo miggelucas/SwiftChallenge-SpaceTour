@@ -10,6 +10,7 @@ import SwiftUI
 struct SolarSystem: View {
     @State var isAnimating: Bool = false
     
+    
     // distance to sum
     let mercuryDistance: CGFloat = 65
     let venusDistance: CGFloat = 90
@@ -22,6 +23,7 @@ struct SolarSystem: View {
     
     var body: some View {
         ZStack {
+            SpaceView(numberOfStars: 50)
             
             // Sum
             StarView(starSize: 100,

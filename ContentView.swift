@@ -8,13 +8,49 @@
 import SwiftUI
 
 struct ContentView: View {
+
+    
     var body: some View {
-        ZStack {
-            SpaceView(numberOfStars: 50)
-//            EarthSystem(moonRevolutionPeriod: 6, tidePeriod: 6)
-//            TideSystem()
-            SolarSystem()
+        NavigationStack {
+            ZStack {
+                    SpaceView()
+                    
+                    VStack(spacing: 60) {
+                        Spacer()
+                        
+                        Text("Space Tour")
+                            .font(.system(size: 70))
+                            .fontWeight(.black)
+                      
+                        VStack(spacing: 30) {
+                            NavigationLink {
+                                SolarSystem()
+                            } label: {
+                                Text("Solar System")
+                            }
+
+                            NavigationLink {
+                                EarthSystem(tidePeriod: 4)
+                            } label: {
+                                Text("Earth System")
+                            }
+
+                            NavigationLink {
+                                TideSystem()
+                            } label: {
+                                Text("Tide system")
+                            }
+                    
+                        }
+                        .font(.system(size: 50))
+        
+                    }
+                    .padding(.bottom, 300)
+                    .foregroundColor(.accentColor)
+
+            }
         }
+        
 
     }
 }

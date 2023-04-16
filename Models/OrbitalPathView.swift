@@ -12,8 +12,8 @@ struct OrbitalPathView: View {
     let opacity: Double
     let diameter: CGFloat
     
-    init(color: Color = .gray,
-         opacity: Double = 0.3,
+    init(color: Color = .white,
+         opacity: Double = 0.4,
          radius: CGFloat) {
         self.color = color
         self.opacity = opacity
@@ -23,7 +23,8 @@ struct OrbitalPathView: View {
        
        var body: some View {
            Circle()
-               .strokeBorder(lineWidth: 1)
+               //.strokeBorder(lineWidth: 1)
+               .stroke(style: StrokeStyle(lineWidth: 1, dash: [5, 10]))
                .foregroundColor(color)
                .opacity(opacity)
                .frame(width: diameter)
