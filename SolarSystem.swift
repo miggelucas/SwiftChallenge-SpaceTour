@@ -14,7 +14,12 @@ struct SolarSystem: View {
         ZStack {
             
             // Sum
-            PlanetView(radius: 100, color: .yellow)
+            StarView(starSize: 100,
+                     animationDuration: 10000,
+                     opacity: 0.9,
+                     starColorList: [.yellow],
+                     scaleMin: 0.99)
+                
             
             // Mercury
             PlanetView(radius: 5, color: .gray)
@@ -46,28 +51,28 @@ struct SolarSystem: View {
             
             // Jupiter
             PlanetView(radius: 60, color: .orange)
-                .offset(x: 210)
+                .offset(x: 240)
                 .rotationEffect(isAnimating ? Angle(degrees: 440) : Angle(degrees: 80))
                 .animation(.linear(duration: 43.33)
                     .repeatForever(autoreverses: false), value: isAnimating)
             
             // Saturn
             PlanetView(radius: 50, color: .orange)
-                .offset(x: 270)
+                .offset(x: 310)
                 .rotationEffect(isAnimating ? Angle(degrees: 520) : Angle(degrees: 160))
                 .animation(.linear(duration: 107.59)
                     .repeatForever(autoreverses: false), value: isAnimating)
             
             // Uranos
             PlanetView(radius: 40, color: .cyan)
-                .offset(x: 320)
+                .offset(x: 390)
                 .rotationEffect(isAnimating ? Angle(degrees: 480) : Angle(degrees: 120))
                 .animation(.linear(duration: 306.87)
                     .repeatForever(autoreverses: false), value: isAnimating)
             
             // Neptune
             PlanetView(radius: 40, color: .blue)
-                .offset(x: 365)
+                .offset(x: 425)
                 .rotationEffect(isAnimating ? Angle(degrees: 360) : Angle(degrees: 0))
                 .animation(.linear(duration: 601.90)
                     .repeatForever(autoreverses: false), value: isAnimating)

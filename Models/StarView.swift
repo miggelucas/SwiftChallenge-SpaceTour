@@ -19,18 +19,22 @@ struct StarView: View {
                                     .white, .white, .yellow, .orange,
                                     .white, .white, .yellow, .orange,
                                     .white, .white, .yellow, .orange,
-                                    .red, .brown]) {
+                                    .red, .brown],
+         scaleMin: Double = 0.8
+    ) {
                                         self.isAnimating = isAnimating
                                         self.starSize = starSize
                                         self.starColor = starColorList.randomElement() ?? .white
                                         self.animationDuration = animationDuration
                                         self.opacity = opacity
+        self.scaleMin = scaleMin
                                     }
     
     let starSize: CGFloat
     let starColor: Color
     let animationDuration: Double
     let opacity: Double
+    let scaleMin: Double
     
     
     
@@ -40,7 +44,7 @@ struct StarView: View {
                 .fill(starColor)
                 .frame(width: starSize)
                 .blur(radius: isAnimating ? 4 : 1.5)
-                .scaleEffect(isAnimating ? 0.8 : 1)
+                .scaleEffect(isAnimating ? scaleMin : 1)
                 .opacity(isAnimating ? opacity + 0.2 : opacity)
             
         }
