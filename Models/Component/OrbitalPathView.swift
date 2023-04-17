@@ -34,6 +34,10 @@ struct OrbitalPathView: View {
 
 struct OrbitalPathView_Previews: PreviewProvider {
     static var previews: some View {
-        OrbitalPathView(radius: 100)
+        ZStack {
+            Color(.black)
+            OrbitalPathView(radius: 100)
+        }
+      
     }
 }

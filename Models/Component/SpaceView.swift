@@ -45,6 +45,6 @@ struct SpaceView: View {
 
 struct SpaceView_Previews: PreviewProvider {
     static var previews: some View {
-        SpaceView()
+        SpaceView(numberOfStars: 500)
     }
 }
