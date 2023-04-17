@@ -8,51 +8,52 @@
 import SwiftUI
 
 struct ContentView: View {
-
-    
     var body: some View {
         NavigationStack {
             ZStack {
-                    SpaceView()
+                SpaceView()
+                
+                VStack(spacing: 60) {
+                    Spacer()
                     
-                    VStack(spacing: 60) {
-                        Spacer()
-                        
-                        Text("Space Tour")
-                            .font(.system(size: 70))
-                            .fontWeight(.black)
-                      
-                        VStack(spacing: 30) {
-                            NavigationLink {
-                                SolarSystem()
-                            } label: {
-                                Text("Solar System")
-                            }
-
-                            NavigationLink {
-                                TideSystem()
-                            } label: {
-                                Text("Tide System")
-                            }
-
-                            NavigationLink {
-                                MoonSystem()
-                            } label: {
-                                Text("Moon system")
-                            }
+                    Text("Space Tour")
+                        .font(.system(size: 70))
+                        .fontWeight(.black)
                     
+                    VStack(spacing: 30) {
+                        NavigationLink {
+                            SolarSystem()
+                        } label: {
+                            Text("Solar System")
                         }
-                        .font(.system(size: 50))
-        
+                        
+                        NavigationLink {
+                            TideSystem()
+                        } label: {
+                            Text("Tide System")
+                        }
+                        
+                        NavigationLink {
+                            MoonSystem()
+                        } label: {
+                            Text("Moon system")
+                        }
+                        
                     }
-                    .padding(.bottom, 300)
-                    .foregroundColor(.accentColor)
-
+                    .font(.system(size: 50))
+                    
+                }
+                .padding(.bottom, 300)
+                .foregroundColor(.accentColor)
+                
             }
         }
-
+        .onAppear {
+            MusicPlayer.shared.play()
+        }
         
-
+        
+        
     }
 }
 
