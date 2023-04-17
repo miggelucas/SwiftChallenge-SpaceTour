@@ -26,11 +26,8 @@ struct SolarSystem: View {
             SpaceView(numberOfStars: 50)
             
             // Sum
-            StarView(starSize: 100,
-                     animationDuration: 10000,
-                     opacity: 0.9,
-                     starColorList: [.yellow],
-                     scaleMin: 0.99)
+            // planet but it's a star actually
+            PlanetView(radius: 100, color: .yellow)
              
             // Mercury
             ZStack {

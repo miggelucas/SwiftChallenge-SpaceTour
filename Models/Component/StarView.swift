@@ -12,7 +12,7 @@ struct StarView: View {
     
     
     init(isAnimating: Bool = false,
-         starSize: CGFloat = CGFloat.random(in: 1...15),
+         starSize: CGFloat = CGFloat.random(in: 1...20),
          animationDuration: Double = Double.random(in: 1...5),
          opacity: Double = Double.random(in: 0.5...1),
          starColorList: [Color] = [ .cyan, .blue, .yellow, .orange,
@@ -40,8 +40,10 @@ struct StarView: View {
     
     var body: some View {
         Group {
-            Circle()
-                .fill(starColor)
+//            Circle()
+            Image(systemName: "rhombus.fill")
+//                .fill(starColor)
+                .foregroundColor(starColor)
                 .frame(width: starSize)
                 .blur(radius: isAnimating ? 4 : 1.5)
                 .scaleEffect(isAnimating ? scaleMin : 1)

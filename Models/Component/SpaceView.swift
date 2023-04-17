@@ -11,7 +11,7 @@ struct SpaceView: View {
     
     let numberOfStars: Int?
     
-    init(numberOfStars: Int? = 150) {
+    init(numberOfStars: Int? = 100) {
         self.numberOfStars = numberOfStars
     }
     

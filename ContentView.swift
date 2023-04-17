@@ -30,15 +30,15 @@ struct ContentView: View {
                             }
 
                             NavigationLink {
-                                EarthSystem(tidePeriod: 4)
+                                TideSystem()
                             } label: {
-                                Text("Earth System")
+                                Text("Tide System")
                             }
 
                             NavigationLink {
-                                TideSystem()
+                                MoonSystem()
                             } label: {
-                                Text("Tide system")
+                                Text("Moon system")
                             }
                     
                         }
@@ -50,6 +50,7 @@ struct ContentView: View {
 
             }
         }
+
         
 
     }

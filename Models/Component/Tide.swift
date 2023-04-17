@@ -12,14 +12,14 @@ struct Tide: View {
     
     let tideColor: Color = Color.blue.opacity(0.5)
     let earthRadius: CGFloat
-    var tideIntensityPeriod: Double
-    @State var tideWidth: CGFloat
+
+    var tideWidth: CGFloat
     @State var isAnimating: Bool = false
     
-    init(earthRadius: CGFloat, tideIntensityPeriod: Double) {
+    init(earthRadius: CGFloat) {
         self.earthRadius = earthRadius
         self.tideWidth = earthRadius * 1.5
-        self.tideIntensityPeriod = tideIntensityPeriod
+
     }
 
     
@@ -27,14 +27,11 @@ struct Tide: View {
         ZStack {
             Ellipse()
                 .fill(tideColor)
-                .frame(width: tideWidth + (isAnimating ? 1 : -1),
+                .frame(width: tideWidth,
                        height: earthRadius*1.05)
-                .animation(.easeInOut(duration:  (tideIntensityPeriod / 2) ).repeatForever(autoreverses: true),
-                           value: tideWidth)
         }
         
         .onAppear {
-            self.tideWidth = earthRadius * 1.8
             self.isAnimating = true
         }
     }
@@ -48,7 +45,7 @@ struct Tide: View {
 
 struct Tide_Previews: PreviewProvider {
     static var previews: some View {
-        Tide(earthRadius: 50, tideIntensityPeriod: 50)
+        Tide(earthRadius: 50)
     }
 }
 
