@@ -12,6 +12,14 @@ struct MoonPhasesView: View {
     var moonPhasePeriod: Double
     var moonRadius: CGFloat = 50
     
+    var minShadownOffset: CGFloat {
+        return (moonRadius * -1) - 5
+    }
+    
+    var maxShadownOffset: CGFloat {
+        return moonRadius + 1
+    }
+    
     var body: some View {
         ZStack {
             // moon
@@ -25,12 +33,12 @@ struct MoonPhasesView: View {
             PlanetView(radius: moonRadius,
                        color: .black)
 
-            .offset(x: isAnimating ? -moonRadius : moonRadius)
+            .offset(x: isAnimating ? 0 : maxShadownOffset)
 //            .rotationEffect(angleRotation)
         }
         .frame(width: moonRadius, height: moonRadius)
         .onAppear {
-            withAnimation(.linear(duration: moonPhasePeriod).repeatForever()) {
+            withAnimation(.easeInOut(duration: moonPhasePeriod / 2).repeatForever()) {
                 isAnimating = true
             }
         }

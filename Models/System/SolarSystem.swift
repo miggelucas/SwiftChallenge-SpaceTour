@@ -30,12 +30,12 @@ struct SolarSystem: View {
                 Spacer()
                 //animation
                 ZStack {
-          
+                    
                     
                     // Sum
                     // planet but it's a star actually
                     PlanetView(radius: 100, color: .yellow)
-                     
+                    
                     // Mercury
                     ZStack {
                         OrbitalPathView(radius: mercuryDistance)
@@ -45,7 +45,7 @@ struct SolarSystem: View {
                             .animation(.linear(duration: 0.88)
                                 .repeatForever(autoreverses: false), value: isAnimating)
                     }
-                   
+                    
                     
                     // Venus
                     ZStack {
@@ -54,7 +54,7 @@ struct SolarSystem: View {
                             .offset(x: venusDistance)
                             .rotationEffect(isAnimating ? Angle(degrees: 380) : Angle(degrees: 20))
                             .animation(.linear(duration: 2.25)
-                            .repeatForever(autoreverses: false), value: isAnimating)
+                                .repeatForever(autoreverses: false), value: isAnimating)
                     }
                     
                     // Earth
@@ -64,7 +64,7 @@ struct SolarSystem: View {
                             .offset(x: earthDistance)
                             .rotationEffect(isAnimating ? Angle(degrees: 400) : Angle(degrees: 40))
                             .animation(.linear(duration: 3.65)
-                            .repeatForever(autoreverses: false), value: isAnimating)
+                                .repeatForever(autoreverses: false), value: isAnimating)
                     }
                     
                     // Mars
@@ -74,7 +74,7 @@ struct SolarSystem: View {
                             .offset(x: marsDistance)
                             .rotationEffect(isAnimating ? Angle(degrees: 420) : Angle(degrees: 60))
                             .animation(.linear(duration: 6.87)
-                            .repeatForever(autoreverses: false), value: isAnimating)
+                                .repeatForever(autoreverses: false), value: isAnimating)
                     }
                     
                     // Jupiter
@@ -84,7 +84,7 @@ struct SolarSystem: View {
                             .offset(x: jupiterDistance)
                             .rotationEffect(isAnimating ? Angle(degrees: 440) : Angle(degrees: 80))
                             .animation(.linear(duration: 43.33)
-                            .repeatForever(autoreverses: false), value: isAnimating)
+                                .repeatForever(autoreverses: false), value: isAnimating)
                     }
                     
                     // Saturn
@@ -94,7 +94,7 @@ struct SolarSystem: View {
                             .offset(x: saturnDistance)
                             .rotationEffect(isAnimating ? Angle(degrees: 520) : Angle(degrees: 160))
                             .animation(.linear(duration: 107.59)
-                            .repeatForever(autoreverses: false), value: isAnimating)
+                                .repeatForever(autoreverses: false), value: isAnimating)
                     }
                     
                     // Uranos
@@ -104,7 +104,7 @@ struct SolarSystem: View {
                             .offset(x: uranosDistance)
                             .rotationEffect(isAnimating ? Angle(degrees: 480) : Angle(degrees: 120))
                             .animation(.linear(duration: 306.87)
-                            .repeatForever(autoreverses: false), value: isAnimating)
+                                .repeatForever(autoreverses: false), value: isAnimating)
                     }
                     
                     // Neptune
@@ -114,32 +114,29 @@ struct SolarSystem: View {
                             .offset(x: neptuneDistance)
                             .rotationEffect(isAnimating ? Angle(degrees: 360) : Angle(degrees: 0))
                             .animation(.linear(duration: 601.90)
-                            .repeatForever(autoreverses: false), value: isAnimating)
+                                .repeatForever(autoreverses: false), value: isAnimating)
                     }
                     
                     
                 }
                 
                 Spacer()
-                // text
-                ZStack {
-                    Color(.gray)
-                        .opacity(0.5)
-                    Text("This is our solar system. Have you met all the plants? Our sun is the biggest star in this screen, located in the center. In order of proximity, we can now find Mercury (a bit rushed, don't you think), Venus, Earth (where we live), Mars, Jupiter, Saturn, Uranus and Neptune.")
-                        .foregroundColor(.accentColor)
-                        .font(.title)
-                        .lineSpacing(2)
-                        .padding(20)
-                }
-                .cornerRadius(20)
-                .frame(height: 300)
-                .padding()
+                
+                
+                Text("This is our solar system. Have you met all the plants? Our sun is the biggest star in this screen, located in the center. In order of proximity, we can now find Mercury (a bit rushed, don't you think), Venus, Earth (where we live), Mars, Jupiter, Saturn, Uranus and Neptune.")
+                    .foregroundColor(.accentColor)
+                    .font(.title)
+                    .lineSpacing(4)
+                    .padding(20)
+                    .background(.gray.opacity(0.6))
+                    .cornerRadius(20)
+                    .padding()
                 
             }
         }
         .onAppear {
             self.isAnimating = true
-    }
+        }
     }
 }
 
