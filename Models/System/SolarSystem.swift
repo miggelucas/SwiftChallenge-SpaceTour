@@ -11,6 +11,9 @@ struct SolarSystem: View {
     @State var isAnimating: Bool = false
     @State private var scale: CGFloat = 1.0
     
+    @State var opacityHint: Double = 1
+    @State var opacityTrivia: Double = 0
+    
     // distance to sum
     let mercuryDistance: CGFloat = 65
     let venusDistance: CGFloat = 90
@@ -121,12 +124,15 @@ struct SolarSystem: View {
             
             
             VStack() {
-                                //animation
-               
+                TextContentView(textString: "Try to zoom it!")
+                    .opacity(opacityHint)
+                    .animation(.easeIn(duration: 5), value: opacityHint)
                 
                 Spacer()
                 
                 TextContentView(textString: "This is our solar system. Have you met all the planets? Our sun is the biggest star in this screen, located in the center. In order of proximity, we can now find Mercury (a bit rushed, don't you think), Venus, Earth (where we live), Mars, Jupiter, Saturn, Uranus and Neptune.")
+                    .opacity(opacityTrivia)
+                    .animation(.easeIn(duration: 2), value: opacityTrivia)
                     .padding()
                 
             }
@@ -139,6 +145,12 @@ struct SolarSystem: View {
 
         .onAppear {
             self.isAnimating = true
+            
+            opacityHint = 0
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                opacityTrivia = 1
+            }
         }
     }
 }

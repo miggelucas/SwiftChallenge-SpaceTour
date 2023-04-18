@@ -17,6 +17,9 @@ struct TideSystem: View {
     @State var isAnimation: Bool = false
     @State private var scale: CGFloat = 1.0
     
+    @State var opacityHint: Double = 1
+    @State var opacityTrivia: Double = 0
+    
     var body: some View {
         ZStack {
             
@@ -58,14 +61,19 @@ struct TideSystem: View {
             .scaleEffect(scale)
             
             VStack() {
+                TextContentView(textString: "Try to zoom it!")
+                    .opacity(opacityHint)
+                    .animation(.easeIn(duration: 5), value: opacityHint)
     
                 Spacer()
                 
                 TextContentView(textString: "Tide is the rise and fall of sea level that happens every day. This happens because the moon, which is quite far from Earth, pulls sea water close to it with its gravitational pull. This causes the water to rise, causing high tide. Afterwards, the water goes back down, causing the low tide.")
+                    .opacity(opacityTrivia)
+                    .animation(.easeIn(duration: 2), value: opacityTrivia)
                     .padding()
                 
             }
-            
+            .padding(.horizontal, 50)
         }
         .gesture(MagnificationGesture()
                     .onChanged { value in
@@ -73,6 +81,12 @@ struct TideSystem: View {
                     })
         .onAppear {
             isAnimation = true
+            
+            opacityHint = 0
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                opacityTrivia = 1
+            }
             
         }
         .ignoresSafeArea()

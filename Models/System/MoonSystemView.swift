@@ -8,6 +8,8 @@ struct MoonSystem: View {
     let earthRevolutionPeriod: CGFloat = 28
     let moonPeriod: CGFloat = 10
     
+    @State var opacityHint: Double = 1
+    @State var opacityTrivia: Double = 0
     @State var angleRotation: Angle = Angle(degrees: 0)
     @State private var scale: CGFloat = 1.0
     
@@ -40,14 +42,21 @@ struct MoonSystem: View {
             
             
             VStack {
-                Spacer()
-                TextContentView(textString: "The moon's position in relation to the sun influences our perception of it. What we see of the moon is the reflection of sunlight, so when the moon is positioned between the sun and the earth, we are not able to observe it. On the other hand, when we are positioned between the sun and the moon, the light rays can reach the moon and be reflected within our visual field.")
+                TextContentView(textString: "Try to zoom it!")
+                    .opacity(opacityHint)
+                    .animation(.easeIn(duration: 5), value: opacityHint)
                 
+                
+                Spacer()
+                
+                TextContentView(textString: "The moon's position in relation to the sun influences our perception of it. What we see of the moon is the reflection of sunlight, so when the moon is positioned between the sun and the earth, we are not able to observe it. On the other hand, when we are positioned between the sun and the moon, the light rays can reach the moon and be reflected within our visual field.")
+                    .opacity(opacityTrivia)
+                    .animation(.easeIn(duration: 2), value: opacityTrivia)
                     .padding()
+                
             }
-           
-            
-            
+            .padding(.horizontal, 50)
+        
             
             
         }
@@ -59,6 +68,12 @@ struct MoonSystem: View {
             withAnimation(Animation.linear(duration: earthRevolutionPeriod).repeatForever(autoreverses: false)) {
                 self.angleRotation = .degrees(360)
             }
+            opacityHint = 0
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                opacityTrivia = 1
+            }
+            
         }
         
     }
