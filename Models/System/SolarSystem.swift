@@ -123,13 +123,7 @@ struct SolarSystem: View {
                 Spacer()
                 
                 
-                Text("This is our solar system. Have you met all the plants? Our sun is the biggest star in this screen, located in the center. In order of proximity, we can now find Mercury (a bit rushed, don't you think), Venus, Earth (where we live), Mars, Jupiter, Saturn, Uranus and Neptune.")
-                    .foregroundColor(.accentColor)
-                    .font(.title)
-                    .lineSpacing(4)
-                    .padding(20)
-                    .background(.gray.opacity(0.6))
-                    .cornerRadius(20)
+                TextContentView(textString: "This is our solar system. Have you met all the plants? Our sun is the biggest star in this screen, located in the center. In order of proximity, we can now find Mercury (a bit rushed, don't you think), Venus, Earth (where we live), Mars, Jupiter, Saturn, Uranus and Neptune.")
                     .padding()
                 
             }

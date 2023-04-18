@@ -25,16 +25,13 @@ struct MoonPhasesView: View {
             // moon
             PlanetView(radius: moonRadius,
                        color: .white)
-
-//            .rotationEffect(angleRotation)
-            
             
             // moon shadow
             PlanetView(radius: moonRadius,
                        color: .black)
 
             .offset(x: isAnimating ? 0 : maxShadownOffset)
-//            .rotationEffect(angleRotation)
+
         }
         .frame(width: moonRadius, height: moonRadius)
         .onAppear {

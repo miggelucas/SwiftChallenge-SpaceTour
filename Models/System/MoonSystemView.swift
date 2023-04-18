@@ -35,7 +35,6 @@ struct MoonSystem: View {
                             .offset(x: 200)
                             .rotationEffect(angleRotation)
                         
-                        
                     }
                     
                 }
@@ -43,24 +42,13 @@ struct MoonSystem: View {
                 Spacer()
                 
                 
-                
-                Text("The moon's position in relation to the sun influences our perception of it. What we see of the moon is the reflection of sunlight, so when the moon is positioned between the sun and the earth, we are not able to observe it. On the other hand, when we are positioned between the sun and the moon, the light rays can reach the moon and be reflected within our visual field.")
-                    .foregroundColor(.accentColor)
-                    .font(.title)
-                    .lineSpacing(4)
-                    .padding(20)
-                    .background(.gray.opacity(0.6))
-                    .cornerRadius(20)
+                TextContentView(textString: "The moon's position in relation to the sun influences our perception of it. What we see of the moon is the reflection of sunlight, so when the moon is positioned between the sun and the earth, we are not able to observe it. On the other hand, when we are positioned between the sun and the moon, the light rays can reach the moon and be reflected within our visual field.")
+
                     .padding()
                 
-                
-                
+        
             }
-            
-            
-            
-            
-            
+        
         }
         .onAppear {
             withAnimation(Animation.linear(duration: earthRevolutionPeriod).repeatForever(autoreverses: false)) {
