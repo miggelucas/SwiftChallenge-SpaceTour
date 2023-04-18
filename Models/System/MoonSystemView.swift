@@ -15,8 +15,11 @@ struct MoonSystem: View {
             // Space
             SpaceView(numberOfStars: 25)
             
-            VStack(spacing: 200) {
+            VStack() {
+
+                Spacer()
                 
+                // animation
                 ZStack {
                     // Sun
                     PlanetView(radius: sunRadius,
@@ -27,32 +30,21 @@ struct MoonSystem: View {
                         // earth
                         PlanetView(radius: 100,
                                    color: .blue)
-                        // moon
-                        PlanetView(radius: 50,
-                                   color: .white)
-                        .offset(x: 200)
-                        .rotationEffect(angleRotation)
+                        
+                        MoonPhasesView(moonPhasePeriod: earthRevolutionPeriod)
+                            .offset(x: 200)
+                            .rotationEffect(angleRotation)
+                        
                         
                     }
                     
                 }
- 
                 
-
-                ZStack {
-                    Color(.gray)
-                        .opacity(0.3)
-                    Text("The moon's position in relation to the sun influences our perception of it. What we see of the moon is the reflection of sunlight, so when the moon is positioned between the sun and the earth, we are not able to observe it . On the other hand, when we are positioned between the sun and the moon, the light rays can reach the moon and be reflected within our visual field.")
-                        .foregroundColor(.accentColor)
-                        .font(.title)
-                        .lineSpacing(2)
-                        .padding(.horizontal, 100)
-                }
-                .cornerRadius(15)
-                .frame(height: 300)
-                .padding()
+                Spacer()
                 
-               
+            
+                
+                
                 
                 
             }

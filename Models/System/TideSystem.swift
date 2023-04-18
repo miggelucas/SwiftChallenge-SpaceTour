@@ -22,37 +22,63 @@ struct TideSystem: View {
             // Space
             SpaceView(numberOfStars: 25)
 
-            
-            // Tide
-            Tide(earthRadius: earthRadius + 5)
-                .rotationEffect(isAnimation ? Angle(degrees: 360) : Angle(degrees: 0),
-                                anchor: .center)
-                .animation(.linear(duration: moonRevolutionPeriod)
-                    .repeatForever(autoreverses: false), value: isAnimation)
-            
-            // Earth
-            PlanetView(radius: earthRadius,
-                       color: .brown)
+            VStack(spacing: 150) {
+                Spacer ()
+                
+                ZStack {
+                    // Tide
+                    Tide(earthRadius: earthRadius + 5)
+                        .rotationEffect(isAnimation ? Angle(degrees: 360) : Angle(degrees: 0),
+                                        anchor: .center)
+                        .animation(.linear(duration: moonRevolutionPeriod)
+                            .repeatForever(autoreverses: false), value: isAnimation)
+                    
+                    // Earth
+                    PlanetView(radius: earthRadius,
+                               color: .brown)
 
-            
-            // Moon
-            PlanetView(radius: moonRadius,
-                       color: .gray)
-                .offset(x: moonDistanceToEarth , y: 0)
-                .rotationEffect(isAnimation ? Angle(degrees: 360) : Angle(degrees: 0),
-                                anchor: .center)
-                .animation(.linear(duration: moonRevolutionPeriod)
-                    .repeatForever(autoreverses: false), value: isAnimation)
-            
-            
-            Image(systemName: "sailboat")
-                .resizable()
-                .frame(width: 100.0, height: 100)
-                .foregroundColor(.accentColor)
-                .offset(y: isAnimation ? -150 : -120)
-                .animation(.easeInOut(duration: moonRevolutionPeriod / 4)
-                    .repeatForever(autoreverses: true), value: isAnimation)
+                    
+                    // Moon
+                    PlanetView(radius: moonRadius,
+                               color: .gray)
+                        .offset(x: moonDistanceToEarth , y: 0)
+                        .rotationEffect(isAnimation ? Angle(degrees: 360) : Angle(degrees: 0),
+                                        anchor: .center)
+                        .animation(.linear(duration: moonRevolutionPeriod)
+                            .repeatForever(autoreverses: false), value: isAnimation)
+                    
+                    
+                    Image(systemName: "sailboat")
+                        .resizable()
+                        .frame(width: 100.0, height: 100)
+                        .foregroundColor(.accentColor)
+                        .offset(y: isAnimation ? -150 : -120)
+                        .animation(.easeInOut(duration: moonRevolutionPeriod / 4)
+                            .repeatForever(autoreverses: true), value: isAnimation)
 
+                }
+                
+                
+                Spacer()
+                
+                
+                ZStack {
+                    Color(.gray)
+                        .opacity(0.4)
+                    Text("The moon's position in relation to the sun influences our perception of it. What we see of the moon is the reflection of sunlight, so when the moon is positioned between the sun and the earth, we are not able to observe it. On the other hand, when we are positioned between the sun and the moon, the light rays can reach the moon and be reflected within our visual field.")
+                        .foregroundColor(.accentColor)
+                        .font(.title)
+                        .lineSpacing(2)
+                        .padding(.horizontal, 100)
+                }
+                .cornerRadius(15)
+                .frame(height: 300)
+                .padding()
+                
+            }
+            .padding()
+            
+            
             
         }
         .onAppear {
