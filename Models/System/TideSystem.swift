@@ -11,7 +11,7 @@ struct TideSystem: View {
     
     let earthRadius: CGFloat = 150
     let moonRadius: CGFloat = 50
-    let moonDistanceToEarth: CGFloat = 400
+    let moonDistanceToEarth: CGFloat = 375
     var moonRevolutionPeriod: Double = 28
     
     @State var isAnimation: Bool = false
@@ -61,7 +61,7 @@ struct TideSystem: View {
                 
                 Spacer()
                 
-                TextContentView(textString: "The moon's position in relation to the sun influences our perception of it. What we see of the moon is the reflection of sunlight, so when the moon is positioned between the sun and the earth, we are not able to observe it. On the other hand, when we are positioned between the sun and the moon, the light rays can reach the moon and be reflected within our visual field.")
+                TextContentView(textString: "Já ")
                     .padding()
                 
             }

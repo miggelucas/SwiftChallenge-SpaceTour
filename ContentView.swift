@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var isAnimating: Bool = false
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -17,17 +19,18 @@ struct ContentView: View {
                     Spacer()
                     
                     Text("Space Tour")
-//                        .font(.system(,size: 70))
-                        .font(.custom("American Typewriter", size: 150))
+//                        .opacity(isAnimating ? 1 : 0)
+                        .font(.system(size: 100, weight: .heavy, design: .monospaced))
                         .fontWeight(.black)
                         .foregroundColor(.accentColor)
+                        
                     
-                    VStack(spacing: 30) {
+                    VStack(spacing: 50) {
                         NavigationLink {
                             SolarSystem()
                         } label: {
                             Text("Solar System")
-                                .font(.custom("Courier New", size: 50))
+                                .font(.system(size: 50, weight: .semibold))
                                 .padding(.horizontal, 50)
                                 .padding(.vertical)
                                 .background(.orange)
@@ -39,7 +42,7 @@ struct ContentView: View {
                             TideSystem()
                         } label: {
                             Text("Tide System")
-                                .font(.custom("Courier New", size: 50))
+                                .font(.system(size: 50, weight: .semibold))
                                 .padding(.horizontal, 50)
                                 .padding(.vertical)
                                 .background(.orange)
@@ -51,7 +54,7 @@ struct ContentView: View {
                             MoonSystem()
                         } label: {
                             Text("Moon System")
-                                .font(.custom("Courier New", size: 50))
+                                .font(.system(size: 50, weight: .semibold))
                                 .padding(.horizontal, 50)
                                 .padding(.vertical)
                                 .background(.orange)
@@ -60,6 +63,7 @@ struct ContentView: View {
                         }
                         
                     }
+//                    .opacity(isAnimating ? 0 : 1)
                     
                 }
                 .padding(.bottom, 150)
@@ -69,6 +73,9 @@ struct ContentView: View {
         }
         .onAppear {
             MusicPlayer.shared.play()
+            withAnimation(.easeOut(duration: 5)) {
+                isAnimating = true
+            }
         }
         
         
