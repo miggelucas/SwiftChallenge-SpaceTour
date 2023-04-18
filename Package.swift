@@ -8,13 +8,13 @@ import PackageDescription
 import AppleProductTypes
 
 let package = Package(
-    name: "Tide Effect",
+    name: "Space Tuor",
     platforms: [
         .iOS("16.0")
     ],
     products: [
         .iOSApplication(
-            name: "Tide Effect",
+            name: "Space Tuor",
             targets: ["AppModule"],
             displayVersion: "1.0",
             bundleVersion: "1",
