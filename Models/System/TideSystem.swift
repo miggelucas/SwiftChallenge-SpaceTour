@@ -61,7 +61,7 @@ struct TideSystem: View {
                 
                 Spacer()
                 
-                TextContentView(textString: "Já ")
+                TextContentView(textString: "Tide is the rise and fall of sea level that happens every day. This happens because the moon, which is quite far from Earth, pulls sea water close to it with its gravitational pull. This causes the water to rise, causing high tide. Afterwards, the water goes back down, causing the low tide.")
                     .padding()
                 
             }
