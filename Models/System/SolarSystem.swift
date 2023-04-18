@@ -136,6 +136,7 @@ struct SolarSystem: View {
                     .onChanged { value in
                         self.scale = value.magnitude
                     })
+
         .onAppear {
             self.isAnimating = true
         }
