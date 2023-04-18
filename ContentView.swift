@@ -13,38 +13,57 @@ struct ContentView: View {
             ZStack {
                 SpaceView()
                 
-                VStack(spacing: 60) {
+                VStack(spacing: 200) {
                     Spacer()
                     
                     Text("Space Tour")
-                        .font(.system(size: 70))
+//                        .font(.system(,size: 70))
+                        .font(.custom("American Typewriter", size: 150))
                         .fontWeight(.black)
+                        .foregroundColor(.accentColor)
                     
                     VStack(spacing: 30) {
                         NavigationLink {
                             SolarSystem()
                         } label: {
                             Text("Solar System")
+                                .font(.custom("Courier New", size: 50))
+                                .padding(.horizontal, 50)
+                                .padding(.vertical)
+                                .background(.orange)
+                                .cornerRadius(50)
+                                .foregroundColor(.black)
                         }
                         
                         NavigationLink {
                             TideSystem()
                         } label: {
                             Text("Tide System")
+                                .font(.custom("Courier New", size: 50))
+                                .padding(.horizontal, 50)
+                                .padding(.vertical)
+                                .background(.orange)
+                                .cornerRadius(50)
+                                .foregroundColor(.black)
                         }
                         
                         NavigationLink {
                             MoonSystem()
                         } label: {
-                            Text("Moon system")
+                            Text("Moon System")
+                                .font(.custom("Courier New", size: 50))
+                                .padding(.horizontal, 50)
+                                .padding(.vertical)
+                                .background(.orange)
+                                .cornerRadius(50)
+                                .foregroundColor(.black)
                         }
                         
                     }
-                    .font(.system(size: 50))
                     
                 }
-                .padding(.bottom, 300)
-                .foregroundColor(.accentColor)
+                .padding(.bottom, 150)
+                
                 
             }
         }
