@@ -16,7 +16,7 @@ let package = Package(
         .iOSApplication(
             name: "Space Tuor",
             targets: ["AppModule"],
-            displayVersion: "1.0",
+            displayVersion: "0.1",
             bundleVersion: "1",
             appIcon: .placeholder(icon: .moon),
             accentColor: .presetColor(.orange),

@@ -42,14 +42,29 @@ struct TideSystem: View {
                            color: .brown)
                 
                 
-                // Moon
-                PlanetView(radius: moonRadius,
-                           color: .gray)
-                .offset(x: moonDistanceToEarth , y: 0)
-                .rotationEffect(isAnimation ? Angle(degrees: 360) : Angle(degrees: 0),
-                                anchor: .center)
-                .animation(.linear(duration: moonRevolutionPeriod)
+
+                ZStack {
+                    // Moon
+                    PlanetView(radius: moonRadius,
+                               color: .white)
+                    .offset(x: moonDistanceToEarth , y: 0)
+                    .rotationEffect(isAnimation ? Angle(degrees: 360) : Angle(degrees: 0),
+                                    anchor: .center)
+                    .animation(.linear(duration: moonRevolutionPeriod)
                     .repeatForever(autoreverses: false), value: isAnimation)
+                    
+                    // Moon light
+                    PlanetView(radius: moonRadius + 1,
+                               color: .white)
+                    .blur(radius: 10)
+                    .offset(x: moonDistanceToEarth , y: 0)
+                    .rotationEffect(isAnimation ? Angle(degrees: 360) : Angle(degrees: 0),
+                                    anchor: .center)
+                    .animation(.linear(duration: moonRevolutionPeriod)
+                    .repeatForever(autoreverses: false), value: isAnimation)
+                    
+                    
+                }
                 
                 
                 Image(systemName: "sailboat")
