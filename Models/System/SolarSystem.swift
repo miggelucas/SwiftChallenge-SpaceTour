@@ -9,7 +9,9 @@ import SwiftUI
 
 struct SolarSystem: View {
     @State var isAnimating: Bool = false
-    @State private var scale: CGFloat = 1.0
+    
+    @State var scale: CGFloat = 1.0
+    @State var position: CGSize = .zero
     
     @State var opacityHint: Double = 1
     @State var opacityTrivia: Double = 0
@@ -120,12 +122,12 @@ struct SolarSystem: View {
                 
             }
             .scaleEffect(scale)
-            .offset(y: -100)
+            .offset(x: position.width, y: position.height)
             
             
             
             VStack() {
-                TextContentView(textString: "Try to zoom it!")
+                TextContentView(textString: "Try to move or zoom it!")
                     .opacity(opacityHint)
                     .animation(.easeIn(duration: 5), value: opacityHint)
                 
@@ -139,10 +141,21 @@ struct SolarSystem: View {
             }
             .padding(.horizontal, 50)
         }
+        .gesture(
+                   DragGesture()
+                       .onChanged { value in
+                           self.position = value.translation
+                       }
+                       .onEnded { value in
+                           self.position = value.translation
+                       }
+               )
         .gesture(MagnificationGesture()
                     .onChanged { value in
                         self.scale = value.magnitude
                     })
+        
+      
 
         .onAppear {
             self.isAnimating = true

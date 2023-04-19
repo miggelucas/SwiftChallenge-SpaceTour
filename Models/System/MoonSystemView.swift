@@ -11,7 +11,9 @@ struct MoonSystem: View {
     @State var opacityHint: Double = 1
     @State var opacityTrivia: Double = 0
     @State var angleRotation: Angle = Angle(degrees: 0)
+    
     @State private var scale: CGFloat = 1.0
+    @State var position: CGSize = .zero
     
     var body: some View {
         ZStack{
@@ -44,13 +46,13 @@ struct MoonSystem: View {
                 }
                 
             }
-            .offset(x: 100, y: -100)
+            .offset(x: position.width, y: position.height)
             .scaleEffect(scale)
             
             
             
             VStack {
-                TextContentView(textString: "Try to zoom it!")
+                TextContentView(textString: "Try to move or zoom it!")
                     .opacity(opacityHint)
                     .animation(.easeIn(duration: 5), value: opacityHint)
                 
@@ -68,6 +70,15 @@ struct MoonSystem: View {
             
             
         }
+        .gesture(
+                   DragGesture()
+                       .onChanged { value in
+                           self.position = value.translation
+                       }
+                       .onEnded { value in
+                           self.position = value.translation
+                       }
+               )
         .gesture(MagnificationGesture()
             .onChanged { value in
                 self.scale = value.magnitude
