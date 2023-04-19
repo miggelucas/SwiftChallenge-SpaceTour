@@ -9,79 +9,87 @@ import SwiftUI
 
 struct ContentView: View {
     @State var isAnimating: Bool = false
+    @State var titleOpacity: Double = 0
+    @State var buttonsOpacity: Double = 0
     
     var body: some View {
-        NavigationStack {
-            ZStack {
-                SpaceView()
+        
+        ZStack {
+            SpaceView()
+            
+            VStack(spacing: 200) {
+                Spacer()
                 
-                VStack(spacing: 200) {
-                    Spacer()
-                    
-                    Text("Space Tour")
-//                        .opacity(isAnimating ? 1 : 0)
-                        .font(.system(size: 100, weight: .heavy, design: .monospaced))
-                        .fontWeight(.black)
-                        .foregroundColor(.accentColor)
+                Text("Space Tour")
+                    .opacity(titleOpacity)
+                    .animation(.easeOut(duration: 5), value: titleOpacity)
+                    .font(.system(size: 100, weight: .heavy, design: .monospaced))
+                    .foregroundColor(.accentColor)
+                
+                
+                VStack(spacing: 50) {
+                    NavigationLink {
+                        SolarSystem()
+                    } label: {
+                        Text("Solar System")
                         
-                    
-                    VStack(spacing: 50) {
-                        NavigationLink {
-                            SolarSystem()
-                        } label: {
-                            Text("Solar System")
-                                .font(.system(size: 50, weight: .semibold))
-                                .padding(.horizontal, 50)
-                                .padding(.vertical)
-                                .background(.orange)
-                                .cornerRadius(50)
-                                .foregroundColor(.black)
-                        }
-                        
-                        NavigationLink {
-                            TideSystem()
-                        } label: {
-                            Text("Tide System")
-                                .font(.system(size: 50, weight: .semibold))
-                                .padding(.horizontal, 50)
-                                .padding(.vertical)
-                                .background(.orange)
-                                .cornerRadius(50)
-                                .foregroundColor(.black)
-                        }
-                        
-                        NavigationLink {
-                            MoonSystem()
-                        } label: {
-                            Text("Moon System")
-                                .font(.system(size: 50, weight: .semibold))
-                                .padding(.horizontal, 50)
-                                .padding(.vertical)
-                                .background(.orange)
-                                .cornerRadius(50)
-                                .foregroundColor(.black)
-                        }
-                        
+                            .padding(.horizontal, 50)
+                            .padding(.vertical)
+                            .background(.orange)
+                            .cornerRadius(50)
+                            .foregroundColor(.black)
                     }
-//                    .opacity(isAnimating ? 0 : 1)
+                    
+                    NavigationLink {
+                        TideSystem()
+                    } label: {
+                        Text("Tide System")
+                            .font(.system(size: 50, weight: .semibold))
+                            .padding(.horizontal, 50)
+                            .padding(.vertical)
+                            .background(.orange)
+                            .cornerRadius(50)
+                            .foregroundColor(.black)
+                    }
+                    
+                    NavigationLink {
+                        MoonSystem()
+                    } label: {
+                        Text("Moon System")
+                            .font(.system(size: 50, weight: .semibold))
+                            .padding(.horizontal, 50)
+                            .padding(.vertical)
+                            .background(.orange)
+                            .cornerRadius(50)
+                            .foregroundColor(.black)
+                    }
                     
                 }
-                .padding(.bottom, 150)
-                
+                .font(.system(size: 50, weight: .semibold))
+                .opacity(buttonsOpacity)
+                .animation(.easeOut(duration: 5), value: buttonsOpacity)
                 
             }
+            .padding(.bottom, 150)
+            
+            
         }
+        
         .onAppear {
-            MusicPlayer.shared.play()
-            withAnimation(.easeOut(duration: 5)) {
-                isAnimating = true
+            
+            titleOpacity = 1
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                buttonsOpacity = 1
             }
+            
         }
-        
-        
         
     }
+    
+    
+    
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

@@ -70,7 +70,7 @@ struct TideSystem: View {
                 TextContentView(textString: "Tide is the rise and fall of sea level that happens every day. This happens because the moon, which is quite far from Earth, pulls sea water close to it with its gravitational pull. This causes the water to rise, causing high tide. Afterwards, the water goes back down, causing the low tide.")
                     .opacity(opacityTrivia)
                     .animation(.easeIn(duration: 2), value: opacityTrivia)
-                    .padding()
+    
                 
             }
             .padding(.horizontal, 50)

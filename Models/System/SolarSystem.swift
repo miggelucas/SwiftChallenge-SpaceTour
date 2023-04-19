@@ -118,7 +118,6 @@ struct SolarSystem: View {
                 
             }
             .scaleEffect(scale)
-            
             .offset(y: -100)
             
             
@@ -130,10 +129,10 @@ struct SolarSystem: View {
                 
                 Spacer()
                 
-                TextContentView(textString: "This is our solar system. Have you met all the planets? Our sun is the biggest star in this screen, located in the center. In order of proximity, we can now find Mercury (a bit rushed, don't you think), Venus, Earth (where we live), Mars, Jupiter, Saturn, Uranus and Neptune.")
+                TextContentView(textString: "This is our solar system. Have you met all planets? Our sun is the biggest star in this screen, located in the center. In order of proximity, we can now find Mercury (a bit rushed, don't you think?), Venus, Earth (where we live!), Mars, Jupiter, Saturn, Uranus and Neptune.")
                     .opacity(opacityTrivia)
                     .animation(.easeIn(duration: 2), value: opacityTrivia)
-                    .padding()
+          
                 
             }
             .padding(.horizontal, 50)

@@ -52,7 +52,7 @@ struct MoonSystem: View {
                 TextContentView(textString: "The moon's position in relation to the sun influences our perception of it. What we see of the moon is the reflection of sunlight, so when the moon is positioned between the sun and the earth, we are not able to observe it. On the other hand, when we are positioned between the sun and the moon, the light rays can reach the moon and be reflected within our visual field.")
                     .opacity(opacityTrivia)
                     .animation(.easeIn(duration: 2), value: opacityTrivia)
-                    .padding()
+               
                 
             }
             .padding(.horizontal, 50)
