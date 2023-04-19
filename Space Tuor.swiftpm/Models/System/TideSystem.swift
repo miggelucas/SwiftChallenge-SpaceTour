@@ -92,7 +92,7 @@ struct TideSystem: View {
     
                 
             }
-            .padding(.horizontal, 50)
+//            .padding(.horizontal, 50)
         }
         .gesture(
                    DragGesture()
