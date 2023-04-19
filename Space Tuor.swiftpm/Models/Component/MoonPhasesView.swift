@@ -12,10 +12,6 @@ struct MoonPhasesView: View {
     var moonPhasePeriod: Double
     var moonRadius: CGFloat = 50
     
-    var minShadownOffset: CGFloat {
-        return (moonRadius * -1) - 5
-    }
-    
     var maxShadownOffset: CGFloat {
         return moonRadius + 1
     }
