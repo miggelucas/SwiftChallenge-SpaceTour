@@ -24,6 +24,14 @@ struct MoonSystem: View {
                            color: .yellow)
                 .offset(x: distanceSunEarth)
                 
+                // sunLight
+                PlanetView(radius: sunRadius + 10,
+                           color: .yellow)
+                .blur(radius: 30)
+                .offset(x: distanceSunEarth)
+                
+                
+                
                 ZStack {
                     // earth
                     PlanetView(radius: 100,

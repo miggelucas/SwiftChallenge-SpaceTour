@@ -33,6 +33,8 @@ struct SolarSystem: View {
                 // Sum
                 // planet but it's a star actually
                 PlanetView(radius: 100, color: .yellow)
+                    .blur(radius: 2)
+                
                 
                 // Mercury
                 ZStack {
