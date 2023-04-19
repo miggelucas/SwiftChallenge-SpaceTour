@@ -84,9 +84,7 @@ struct TideSystem: View {
                        .onChanged { value in
                            self.position = value.translation
                        }
-                       .onEnded { value in
-                           self.position = value.translation
-                       }
+
                )
         .gesture(MagnificationGesture()
                     .onChanged { value in

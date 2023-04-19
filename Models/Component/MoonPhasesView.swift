@@ -26,6 +26,13 @@ struct MoonPhasesView: View {
             PlanetView(radius: moonRadius,
                        color: .white)
             
+            // moon light
+            PlanetView(radius: moonRadius + 2,
+                       color: .white)
+            .blur(radius: 10)
+            .opacity(isAnimating ? 0 : 1)
+
+            
             // moon shadow
             PlanetView(radius: moonRadius,
                        color: .black)

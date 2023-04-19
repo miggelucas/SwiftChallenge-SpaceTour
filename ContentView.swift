@@ -74,7 +74,6 @@ struct ContentView: View {
             
             
         }
-        
         .onAppear {
             
             titleOpacity = 1
