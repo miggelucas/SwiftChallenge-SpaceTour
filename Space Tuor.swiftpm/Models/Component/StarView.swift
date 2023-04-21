@@ -40,11 +40,10 @@ struct StarView: View {
     
     var body: some View {
         Group {
-//            Circle()
             Image(systemName: "rhombus.fill")
-//                .fill(starColor)
+                .resizable()
                 .foregroundColor(starColor)
-                .frame(width: starSize)
+                .frame(width: starSize, height: starSize)
                 .blur(radius: isAnimating ? 4 : 1.5)
                 .scaleEffect(isAnimating ? scaleMin : 1)
                 .opacity(isAnimating ? opacity + 0.2 : opacity)
