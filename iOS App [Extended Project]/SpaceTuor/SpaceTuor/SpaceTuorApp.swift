@@ -11,7 +11,16 @@ import SwiftUI
 struct SpaceTuorApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TestCoreMotionView()
+//            NavigationStack {
+//                ContentView()
+//                    .onAppear {
+//                        MusicPlayer.shared.play()
+//                    }
+//            }
+                
         }
     }
 }
+
+
