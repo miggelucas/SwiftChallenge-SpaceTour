@@ -1,5 +1,5 @@
 
-# Space Tuor 💫
+# Space Tour 💫
 
 Swift Student Challenge 2023 Scholarship Winner
 
